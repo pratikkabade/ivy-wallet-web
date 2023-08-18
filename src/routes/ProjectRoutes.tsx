@@ -4,7 +4,6 @@ import { ProjectFooter } from "../components/ProjectFooter"
 import { ProjectNavbar } from "../components/ProjectNavbar"
 import { Home } from "../pages/Home"
 import { ScrollTop } from "../hooks/ScrollTop"
-import { Tutorial } from "../pages/Tutorial"
 import { Dashboard } from "../pages/Dashboard"
 
 
@@ -12,12 +11,10 @@ export const Route_Items = [
     { name: "Home", link: "/*", element: <Home /> },
     { name: "Home", link: "/IvyWallet", element: <Home /> },
     { name: "Dashboard", link: "/IvyWallet/Dashboard", element: <Dashboard /> },
-    { name: "Tutorial", link: "/IvyWallet/Tutorial", element: <Tutorial /> },
 ]
 
 export const Nav_Items = [
     { name: "Home", link: "/IvyWallet" },
-    { name: "Tutorial", link: "/IvyWallet/Tutorial" },
     { name: "Dashboard", link: "/IvyWallet/Dashboard" },
 ]
 

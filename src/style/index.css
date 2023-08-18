@@ -14,7 +14,7 @@
 
 .scrollup {
     position: fixed;
-    right: 1rem;
+    left: 1rem;
     bottom: -3rem;
     font-size: 1.25rem;
 
@@ -39,4 +39,10 @@
     .scrollup::after {
         content: " Top";
     }
+}
+
+.addbtn {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
 }

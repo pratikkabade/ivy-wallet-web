@@ -1,7 +1,7 @@
 import DarkModeButton from "../hooks/DarkModeButton"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Nav_Items } from "../routes/ProjectRoutes";
+import { Nav_Items, Route_Items } from "../routes/ProjectRoutes";
 
 export const ProjectNavbar = () => {
 
@@ -21,13 +21,11 @@ export const ProjectNavbar = () => {
 
     return (
         <div>
-            <div className={`top-0 bg-white dark:bg-gray-800 z-50 items-center ${show ? 'bg-lime-100' : 'bg-white shadow-sm'} `}>
+            <div className={`top-0 bg-white dark:bg-gray-800 z-50 items-center ${show ? 'bg-white' : 'bg-white shadow-sm'} `}>
                 <nav className={`container flex flex-row justify-between dark:bg-gray-800 mx-auto p-3 py-4 font-sans} `}>
                     <Link
                         className="text-gray-600 hover:text-blue-700 dark:text-gray-200 dark:hover:text-white"
-                        onClick={() =>
-                            ButtonPress(Nav_Items[0].name)}
-                        to={Nav_Items[0].link}>
+                        to={Route_Items[1].link}>
                         <div className="flex flex-row">
                             <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4" className="mr-3 h-6 sm:h-9 rounded-lg" alt="Logo" />
                             <span className="self-center whitespace-nowrap text-xl font-semibold">
@@ -85,7 +83,7 @@ export const ProjectNavbar = () => {
                 </nav>
             </div>
 
-            <div className={`fixed top-0 h-screen w-screen bg-lime-100 dark:bg-gray-800 items-center z-40 ${show ? 'flex' : 'hidden'}`}>
+            <div className={`fixed top-0 h-screen w-screen bg-white dark:bg-gray-800 items-center z-40 ${show ? 'flex' : 'hidden'}`}>
                 {/* MOBILE MENU */}
                 <div className="flex flex-col h-3/5 w-screen justify-start text-2xl items-center">
                     {

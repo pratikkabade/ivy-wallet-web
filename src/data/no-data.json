@@ -1,0 +1,348 @@
+{
+    "accounts": [
+        {
+            "color": -8378797,
+            "currency": "INR",
+            "icon": "ic_vue_building_bank",
+            "id": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "includeInBalance": true,
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Bank",
+            "orderNum": 0.0
+        },
+        {
+            "color": -14533261,
+            "currency": "INR",
+            "icon": "bank",
+            "id": "bd196266-0f0f-4c2e-9c01-6fed60c29bea",
+            "includeInBalance": true,
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Card",
+            "orderNum": 1.0
+        },
+        {
+            "color": -1672379,
+            "currency": "INR",
+            "icon": "ic_vue_money_dollar",
+            "id": "d770e639-73e2-4f3c-b4d9-5e841cf36e7e",
+            "includeInBalance": true,
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Cash",
+            "orderNum": 2.0
+        },
+        {
+            "color": -14519491,
+            "currency": "INR",
+            "icon": "ic_vue_security_lock",
+            "id": "70e92989-571e-4dd3-9c87-ba3a79c80b0f",
+            "includeInBalance": false,
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Mutual Funds",
+            "orderNum": 3.0
+        },
+        {
+            "color": -14519491,
+            "currency": "INR",
+            "icon": "ic_vue_chart_diagram",
+            "id": "ed1d8679-5f84-4890-9cfe-9fd75269fe6b",
+            "includeInBalance": false,
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "My Portfolio",
+            "orderNum": 4.0
+        }
+    ],
+    "budgets": [],
+    "categories": [
+        {
+            "color": -6887867,
+            "icon": "restaurant",
+            "id": "0d5cd7cc-ce7d-4d53-8b47-da0613627d94",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Breakfast",
+            "orderNum": 0.0
+        },
+        {
+            "color": -6887867,
+            "icon": "ic_vue_building_building",
+            "id": "37172681-388e-4bdf-ad6e-9c22f1b92835",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "At Office",
+            "orderNum": 1.0
+        },
+        {
+            "color": -6887867,
+            "icon": "food2",
+            "id": "cd6d7581-f4df-4605-b535-22e3ca063a99",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Lunch",
+            "orderNum": 2.0
+        },
+        {
+            "color": -6887867,
+            "icon": "food2",
+            "id": "822c8e36-5efb-4779-be71-2308148fd524",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Dinner",
+            "orderNum": 3.0
+        },
+        {
+            "color": -19533,
+            "icon": "ic_vue_transport_bus",
+            "id": "4ec99f8a-fd8c-4330-9dc9-4652878bb2b1",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Travelling",
+            "orderNum": 4.0
+        },
+        {
+            "color": -876752,
+            "icon": "ic_vue_crypto_aave",
+            "id": "011949d2-70e1-4a5e-996e-19954df831f9",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Amazon",
+            "orderNum": 5.0
+        },
+        {
+            "color": -9063,
+            "icon": "bills",
+            "id": "5946c899-cb14-4e4c-892e-d241a6c8a4cf",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Shopping",
+            "orderNum": 6.0
+        },
+        {
+            "color": -15540,
+            "icon": "ic_vue_crypto_tether",
+            "id": "cfb934cb-996d-4e41-9792-78967f0dead0",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Apparels",
+            "orderNum": 7.0
+        },
+        {
+            "color": -10344832,
+            "icon": "category",
+            "id": "55814a8c-39d2-4fb8-a100-e1d292940d3a",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Theatre",
+            "orderNum": 8.0
+        },
+        {
+            "color": -19533,
+            "icon": "bills",
+            "id": "83ce7950-e745-48fa-89cf-198ee7028d49",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Subscriptions",
+            "orderNum": 9.0
+        },
+        {
+            "color": -6684741,
+            "icon": "ic_vue_crypto_ankr",
+            "id": "3b309649-1479-419b-8c2e-117d1b266830",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Medicines",
+            "orderNum": 10.0
+        },
+        {
+            "color": -6684741,
+            "icon": "doctor",
+            "id": "9a86325a-de82-4c45-a6cb-683c308308d1",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Doctor",
+            "orderNum": 11.0
+        },
+        {
+            "color": -3351041,
+            "icon": "selfdevelopment",
+            "id": "07d8c9f1-3f15-459e-8418-3ba10b87da55",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Room",
+            "orderNum": 12.0
+        },
+        {
+            "color": -16385,
+            "icon": "atom",
+            "id": "e29181f3-4b2b-4569-8c7b-4d465ffdda20",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Salary",
+            "orderNum": 13.0
+        },
+        {
+            "color": -4557,
+            "icon": "notice",
+            "id": "6fb4779b-7199-4791-8d49-86f4cc798d39",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Other",
+            "orderNum": 14.0
+        },
+        {
+            "color": -14519437,
+            "icon": "shopping",
+            "id": "a6b8ce00-538e-4bad-aaa2-4c2cae0b142f",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Withdrawal",
+            "orderNum": 15.0
+        },
+        {
+            "color": -15414114,
+            "icon": "ic_vue_design_scissors",
+            "id": "ebc866c0-cd19-4a0f-a62b-8d3342a8d86a",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Salon",
+            "orderNum": 19.0
+        }
+    ],
+    "loanRecords": [],
+    "loans": [],
+    "plannedPaymentRules": [
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 26000.0,
+            "categoryId": "e29181f3-4b2b-4569-8c7b-4d465ffdda20",
+            "id": "b8324cc0-1342-42f7-9158-5c0c288d9200",
+            "intervalN": 1,
+            "intervalType": "MONTH",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1677585600000",
+            "type": "INCOME"
+        },
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 7000.0,
+            "categoryId": "07d8c9f1-3f15-459e-8418-3ba10b87da55",
+            "id": "b9c0eaee-ad50-4728-a492-31800b984fe6",
+            "intervalN": 1,
+            "intervalType": "MONTH",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1682942400000",
+            "title": "Rent",
+            "type": "EXPENSE"
+        },
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 1450.0,
+            "categoryId": "83ce7950-e745-48fa-89cf-198ee7028d49",
+            "id": "3e79f27c-f0d8-43c5-86c1-b5369306378f",
+            "intervalN": 180,
+            "intervalType": "DAY",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1682942400000",
+            "title": "Mobile",
+            "type": "EXPENSE"
+        },
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 1000.0,
+            "categoryId": "83ce7950-e745-48fa-89cf-198ee7028d49",
+            "id": "10e89484-edad-4e63-a7b3-2a18857b94b5",
+            "intervalN": 1,
+            "intervalType": "YEAR",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1701432000000",
+            "title": "HeadSpace",
+            "type": "EXPENSE"
+        },
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 800.0,
+            "categoryId": "83ce7950-e745-48fa-89cf-198ee7028d49",
+            "id": "0f90ad10-37b6-4213-8d71-67723e9a78c8",
+            "intervalN": 1,
+            "intervalType": "MONTH",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1685188800000",
+            "title": "DTH \u0026 Internet",
+            "type": "EXPENSE"
+        },
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 200.0,
+            "categoryId": "83ce7950-e745-48fa-89cf-198ee7028d49",
+            "id": "b36c07e2-ce59-4aba-9129-70f41f3179b2",
+            "intervalN": 1,
+            "intervalType": "MONTH",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1677499200000",
+            "title": "YouTube",
+            "type": "EXPENSE"
+        },
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 200.0,
+            "categoryId": "83ce7950-e745-48fa-89cf-198ee7028d49",
+            "id": "c623932d-396c-4a3a-9d0f-cbdebe599e12",
+            "intervalN": 1,
+            "intervalType": "YEAR",
+            "isDeleted": false,
+            "isSynced": false,
+            "oneTime": false,
+            "startDate": "1686916800000",
+            "title": "Amazon Prime",
+            "type": "EXPENSE"
+        }
+    ],
+    "settings": [
+        {
+            "bufferAmount": 20000.0,
+            "currency": "INR",
+            "id": "c292baa0-e0f4-4d2a-848b-f16dbfe78885",
+            "isDeleted": false,
+            "isSynced": false,
+            "name": "Pratik",
+            "theme": "AUTO"
+        }
+    ],
+    "sharedPrefs": {
+        "transfers_as_inc_exp": "true",
+        "show_notifications": "true",
+        "hide_current_balance": "false",
+        "lock_app": "false"
+    },
+    "transactions": [
+        {
+            "accountId": "77b0c517-2bd8-42ac-96cc-36a819104269",
+            "amount": 0.0,
+            "categoryId": "5946c899-cb14-4e4c-892e-d241a6c8a4cf",
+            "dateTime": "1691474368520",
+            "description": "Go to tutorials page and add some data",
+            "id": "5f790e6d-bff3-40f1-9a1b-80eeee99c6bc",
+            "isDeleted": false,
+            "isSynced": false,
+            "title": "No Data Found",
+            "toAmount": 0.0,
+            "type": "EXPENSE"
+        }
+    ]
+}

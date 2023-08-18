@@ -1,16 +1,21 @@
-import jsondata from "../data/data.json"
+import jsondata from "../data/no-data.json"
 
 export const Dashboard = () => {
 
-    const required_details = jsondata.transactions.map(item => {
+    const localValue = localStorage.getItem("thisValues")
+
+    // convert this string to json
+    const cachedJSON = JSON.parse(localValue || JSON.stringify(jsondata))
+
+    const required_details = cachedJSON.transactions.map((item: any) => {
         // get name from accounts table based on account id in transactions table
-        const account = jsondata.accounts.find(account => account.id === item.accountId);
+        const account = cachedJSON.accounts.find((account: any) => account.id === item.accountId);
 
         // get catagory from catagory table based on account id in catagory table
-        const category = jsondata.categories.find(category => category.id === item.categoryId);
+        const category = cachedJSON.categories.find((category: any) => category.id === item.categoryId);
 
         // get currency from setting table
-        const currency = jsondata.settings[0].currency;
+        const currency = cachedJSON.settings[0].currency;
 
         return {
             accountName: account ? account.name : 'Unknown',
@@ -39,9 +44,9 @@ export const Dashboard = () => {
     return (
         <div className="container mb-32 flex flex-wrap flex-col mx-auto justify-center items-center">
             <div className="flex flex-wrap flex-row mx-auto justify-center items-center">
-                {required_details.map(item => (
+                {required_details.map((item: any) => (
                     <div className="flex justify-center">
-                        <div className="p-5 w-96 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg">
+                        <div className="p-5 lg:w-96 md:w-72 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg">
                             <p
                                 className="text-xl font-bold">
                                 {getDate(1691425601087)}
