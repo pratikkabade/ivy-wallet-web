@@ -1,4 +1,5 @@
 import jsondata from "../data/no-data.json"
+import { AddButton } from "../hooks/AddButton";
 
 export const Dashboard = () => {
 
@@ -85,6 +86,7 @@ export const Dashboard = () => {
                         </div>
                     </div>
                 ))}
+                <AddButton />
             </div>
         </div>
     )
