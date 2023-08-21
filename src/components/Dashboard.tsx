@@ -1,50 +1,37 @@
-import { useState, useEffect } from "react";
+import jsondata from "../data/no-data.json"
+import { AddButton } from "./AddButton";
 
-export const Tutorial = () => {
-    const [jsondata, setData] = useState([])
+export const Dashboard = () => {
 
-    // const fetchData = async () => {
-    //     const response = await fetch("https://cdn.statically.io/gh/pratikkabade/bin/main/data3273282587888741541.json");
-    //     const values = await response.json();
-    //     setData(values)
-    // }
-    // fetchData();
+    const localValue = localStorage.getItem("thisValues")
 
-    var xhr = new XMLHttpRequest();
-    var method = "GET";
-    var URL = "https://cdn.statically.io/gh/pratikkabade/bin/main/data3273282587888741541.json";
+    // convert this string to json
+    const cachedJSON = JSON.parse(localValue || JSON.stringify(jsondata))
 
-    xhr.open(method, URL, true);
+    const required_details = cachedJSON.transactions.map((item: any) => {
+        // get name from accounts table based on account id in transactions table
+        const account = cachedJSON.accounts.find((account: any) => account.id === item.accountId);
 
-    xhr.send();
+        // get catagory from catagory table based on account id in catagory table
+        const category = cachedJSON.categories.find((category: any) => category.id === item.categoryId);
 
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            const data = JSON.parse(xhr.response);
-            setData(data)
-        }
-    };
+        // get currency from setting table
+        const currency = cachedJSON.settings[0].currency;
 
-    // create a new array and push all data from jsondata
-    const required_details: any = [];
-    jsondata.forEach((item: any) => {
-        required_details.push({
-            id: item.id,
-            title: item.title,
-            description: item.description,
-            amount: item.amount,
-            currency: item.currency,
-            category: item.category,
-            accountName: item.accountName,
+        return {
+            accountName: account ? account.name : 'Unknown',
+            category: category ? category.name : 'Unknown',
+            currency: currency,
+            dateTime: item.dateTime,
             type: item.type,
-            date: item.date,
-        })
-    })
-
-
-
-
-
+            accountId: item.accountId,
+            categoryId: item.categoryId,
+            title: item.title,
+            amount: item.amount,
+            description: item.description,
+            id: item.id
+        };
+    });
 
     function getDay(mon: any) {
         const str = new Date(mon).toDateString();
@@ -60,7 +47,7 @@ export const Tutorial = () => {
             <div className="flex flex-wrap flex-row mx-auto justify-center items-center">
                 {required_details.map((item: any) => (
                     <div className="flex justify-center">
-                        <div className="p-5 w-96 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg">
+                        <div className="p-5 lg:w-96 md:w-72 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg">
                             <p
                                 className="text-xl font-bold">
                                 {getDate(1691425601087)}
@@ -89,7 +76,7 @@ export const Tutorial = () => {
                             </p>
                             <p key={item.id}
                                 className={`text-5xl font-extrabold font-sans ml-12 
-                        ${item.type === "EXPENSE" ? "" : "text-green-500"}`}>
+                            ${item.type === "EXPENSE" ? "" : "text-green-500"}`}>
                                 {item.amount}
                                 <abbr
                                     className="font-normal ml-2">
@@ -99,6 +86,7 @@ export const Tutorial = () => {
                         </div>
                     </div>
                 ))}
+                <AddButton />
             </div>
         </div>
     )

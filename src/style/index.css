@@ -12,6 +12,10 @@
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .scrollup {
     position: fixed;
     left: 1rem;

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button, Modal } from 'flowbite-react';
-import { AddDetails } from "../pages/AddDetails";
+import { AddDetails } from "../hooks/AddDetails";
 
 export const AddButton = () => {
 
