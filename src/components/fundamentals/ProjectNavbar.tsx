@@ -1,6 +1,6 @@
-import DarkModeButton from "../hooks/DarkModeButton"
+import DarkModeButton from "../../hooks/DarkModeButton"
 import { Link } from 'react-router-dom';
-import { Route_Items } from "../routes/ProjectRoutes";
+import { Route_Items } from "../../routes/ProjectRoutes";
 
 export const ProjectNavbar = () => {
     return (

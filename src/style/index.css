@@ -47,6 +47,18 @@ html {
 
 .addbtn {
     position: fixed;
-    right: 1rem;
+    right: 3rem;
     bottom: 1rem;
+}
+
+.addexpbtn {
+    position: fixed;
+    right: 4rem;
+    bottom: 3rem;
+}
+
+.spltbtn {
+    position: fixed;
+    right: -2rem;
+    bottom: 3rem;
 }

@@ -1,11 +1,11 @@
-import { DataButton } from "./DataButton"
+import { DataButton } from "./add-functionalities/DataButton"
 
 export const Tutorial = () => {
 
     return (
         <div className="mx-auto py-10 w-2/4 justify-center" id="tutorial">
 
-            <div>
+            <div className="slide-up2">
                 <p className="text-5xl mb-10 text-center font-bold">
                     Get started with very simple steps
                 </p>

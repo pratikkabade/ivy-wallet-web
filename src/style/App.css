@@ -16,3 +16,75 @@
     scroll-snap-align: center;
     flex: none;
 }
+
+/* make element slide on page load */
+.slide-r {
+    animation: slide-r 0.5s forwards;
+}
+
+@keyframes slide-r {
+    0% {
+        transform: translateX(-10%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.slide-l {
+    animation: slide-l 0.5s forwards;
+}
+
+@keyframes slide-l {
+    0% {
+        transform: translateX(10%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.slide-up {
+    animation: slide-up 0.5s forwards;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(30%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* create amimation delay */
+.slide-up2 {
+    animation: slide-up2 1s forwards;
+}
+
+@keyframes slide-up2 {
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.slide-down {
+    animation: slide-down 0.5s forwards;
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-30%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

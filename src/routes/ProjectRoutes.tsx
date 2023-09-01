@@ -1,7 +1,7 @@
 import { Route } from "react-router"
 import { BrowserRouter, Routes } from "react-router-dom"
-import { ProjectFooter } from "../components/ProjectFooter"
-import { ProjectNavbar } from "../components/ProjectNavbar"
+import { ProjectFooter } from "../components/fundamentals/ProjectFooter"
+import { ProjectNavbar } from "../components/fundamentals/ProjectNavbar"
 import { Home } from "../pages/Home"
 import { ScrollTop } from "../hooks/ScrollTop"
 

@@ -1,16 +1,16 @@
 import { useState } from "react"
 import { Button, Modal } from 'flowbite-react';
-import { AddDetails } from "../hooks/AddDetails";
+import { AddDetails } from "../../hooks/AddDetails";
 
-export const AddButton = () => {
+export const AddExpense = () => {
 
     const [openModal, setOpenModal] = useState<string | undefined>();
     const props = { openModal, setOpenModal };
 
     return (
-        <div className="addbtn">
+        <div className="addexpbtn slide-up">
             <Button onClick={() => props.setOpenModal('default')}>
-                Add Expense<i className="fa-solid fa-plus"></i>
+                Add<i className="fa-solid fa-plus ml-3"></i>
             </Button>
             <Modal show={props.openModal === 'default'} onClose={() => props.setOpenModal(undefined)}>
                 <Modal.Header>Add Expense</Modal.Header>

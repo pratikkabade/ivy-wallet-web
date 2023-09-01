@@ -1,5 +1,5 @@
 import jsondata from "../data/no-data.json"
-import { AddButton } from "./AddButton";
+import { PlusButton } from "./add-functionalities/PlusButton";
 
 export const Dashboard = () => {
 
@@ -46,7 +46,7 @@ export const Dashboard = () => {
         <div className="container mb-32 flex flex-wrap flex-col mx-auto justify-center items-center">
             <div className="flex flex-wrap flex-row mx-auto justify-center items-center">
                 {required_details.map((item: any) => (
-                    <div className="flex justify-center">
+                    <div className="flex justify-center slide-r">
                         <div className="p-5 lg:w-96 md:w-72 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg">
                             <p
                                 className="text-xl font-bold">
@@ -86,7 +86,7 @@ export const Dashboard = () => {
                         </div>
                     </div>
                 ))}
-                <AddButton />
+                <PlusButton />
             </div>
         </div>
     )

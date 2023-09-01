@@ -1,22 +1,21 @@
 import { useState } from "react"
 import { Button, Modal } from 'flowbite-react';
-import { JSONdata } from "../hooks/JSONdata";
+import { AddDetails } from "../../hooks/AddDetails";
 
-export const DataButton = () => {
+export const SplitExpense = () => {
+
     const [openModal, setOpenModal] = useState<string | undefined>();
     const props = { openModal, setOpenModal };
 
     return (
-        <div>
-            <div className="mx-auto">
-                <Button onClick={() => props.setOpenModal('default')}>
-                    Add Data <i className="fa-solid fa-plus"></i>
-                </Button>
-            </div>
+        <div className="spltbtn slide-up">
+            <Button onClick={() => props.setOpenModal('default')}>
+                Split<i className="fa-solid fa-plus ml-3"></i>
+            </Button>
             <Modal show={props.openModal === 'default'} onClose={() => props.setOpenModal(undefined)}>
-                <Modal.Header>Add Data</Modal.Header>
+                <Modal.Header>Split Expense</Modal.Header>
                 <Modal.Body>
-                    <JSONdata />
+                    <AddDetails />
                 </Modal.Body>
             </Modal>
         </div>
