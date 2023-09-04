@@ -88,3 +88,35 @@
         transform: translateY(0);
     }
 }
+
+.fade-in {
+    animation: fadein 0.7s forwards;
+}
+
+@keyframes fadein {
+    0% {
+        filter: opacity(0);
+    }
+
+    100% {
+        filter: opacity(1);
+    }
+}
+
+.fade-in2 {
+    animation: fadein2 2s forwards;
+}
+
+@keyframes fadein2 {
+    0% {
+        filter: opacity(0);
+    }
+
+    100% {
+        filter: opacity(1);
+    }
+}
+
+.bg-gray-900 .bg-opacity-50 {
+    filter: blur(10px) !important
+}

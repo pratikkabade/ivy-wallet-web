@@ -12,9 +12,9 @@ export const AddExpense = () => {
             <Button onClick={() => props.setOpenModal('default')}>
                 Add<i className="fa-solid fa-plus ml-3"></i>
             </Button>
-            <Modal show={props.openModal === 'default'} onClose={() => props.setOpenModal(undefined)}>
+            <Modal className="fade-in" dismissible show={props.openModal === 'default'} onClose={() => props.setOpenModal(undefined)}>
                 <Modal.Header>Add Expense</Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="fade-in2">
                     <AddDetails />
                 </Modal.Body>
             </Modal>

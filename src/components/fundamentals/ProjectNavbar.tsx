@@ -11,10 +11,7 @@ export const ProjectNavbar = () => {
                         className="text-gray-600 hover:text-blue-700 dark:text-gray-200 dark:hover:text-white"
                         to={Route_Items[0].link}>
                         <div className="flex flex-row">
-                            <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4" className="mr-3 h-6 sm:h-9 rounded-lg" alt="Logo" />
-                            <span className="self-center whitespace-nowrap text-xl font-semibold">
-                                IvyWallet
-                            </span>
+                            <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4" className="mr-3 h-9 sm:h-12 rounded-xl" alt="Logo" />
                         </div>
                     </Link>
 
