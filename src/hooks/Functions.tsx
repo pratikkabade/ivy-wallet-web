@@ -8,3 +8,11 @@ export function getDate(date: any) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return `${months[m.getMonth()]} ${m.getDate()}`;
 }
+export function getYear(date: any){
+    const y = new Date(date);
+    return y.toISOString().slice(0,4)
+}
+export function getMonth(date: any){
+    const y = new Date(date);
+    return y.toISOString().slice(5,7)
+}

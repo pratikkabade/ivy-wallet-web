@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { getMonth, getYear } from "./Functions"
 
 export const JSONdata = () => {
     const [value, setValue] = useState<string>(localStorage.getItem('theURL') || "")
@@ -25,7 +26,7 @@ export const JSONdata = () => {
             setAllow(true)
         }
     }, [value])
-    
+
     fetching && fetchData()
 
     if (data.transactions !== undefined) {
@@ -34,14 +35,11 @@ export const JSONdata = () => {
         // get name from accounts array using id from transactions
         currentData.map((item: any) => {
             const account = data.accounts.find((account: any) => account.id === item.accountId)
-            const color = data.accounts.find((account: any) => account.id === item.accountId)
-            const currency = data.accounts.find((account: any) => account.id === item.accountId)
-            const icon = data.accounts.find((account: any) => account.id === item.accountId)
 
             item.accountName = account.name
-            item.accountColor = color.color
-            item.accountCurrency = currency.currency
-            item.accountIcon = icon.icon
+            item.accountColor = account.color
+            item.accountCurrency = account.currency
+            item.accountIcon = account.icon
 
             return item
         })
@@ -49,16 +47,23 @@ export const JSONdata = () => {
         // get name form categories array using id from transactions
         currentData.map((item: any) => {
             const category = data.categories.find((category: any) => category.id === item.categoryId)
-            const color = data.categories.find((category: any) => category.id === item.categoryId)
-            const icon = data.categories.find((category: any) => category.id === item.categoryId)
 
             item.categoryName = category.name
-            item.categoryColor = color.color
-            item.categoryIcon = icon.icon
+            item.categoryColor = category.color
+            item.categoryIcon = category.icon
 
             return item
         })
 
+        // dateTime to year and month
+        currentData.map((item: any) => {
+            const dt = item.dateTime
+
+            item.transactionYear = getYear(dt)
+            item.transactionMonth = getMonth(dt)
+
+            return item
+        })
         const username = data.settings[0].name
         localStorage.setItem('username', username)
     }
