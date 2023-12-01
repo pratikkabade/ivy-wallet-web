@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
+import { DateFilter } from '../hooks/DateFilter.tsx'
 
 export const Accounts = () => {
     const [data, setData] = useState<any>([])
     const [account, setAccount] = useState<any>(localStorage.getItem('accountName') || '')
+
+    const [year, setYear] = useState('')
+    const [month, setMonth] = useState('')
 
     useEffect(() => {
         const theData = localStorage.getItem('theData') || ''
@@ -19,7 +23,9 @@ export const Accounts = () => {
         )
     }
 
-    const currentData = data.transactions.filter((item: any) => item.type !== "TRANSFER")
+    const currentData1 = data.transactions.filter((item: any) => item.type !== "TRANSFER")
+    const currentData = currentData1.filter((item: any) => item.transactionMonth.toString() === month.toString() &&
+        item.transactionYear.toString() === year.toString())
 
     // show all accounts
     const accounts = data.accounts
@@ -37,17 +43,20 @@ export const Accounts = () => {
 
     return (
         <div className="container mb-32 mx-auto justify-center items-center">
-            <div className='flex flex-wrap flex-row'>
-                {sum === 0 ? (
-                    <div className="text-4xl font-bold text-center my-10">
-                        No transactions found
-                    </div>
-                ) : (
+            <DateFilter yearC={year} setYearC={setYear}
+                monthC={month} setMonthC={setMonth} />
 
-                    <div className="text-4xl font-bold text-center my-10">
-                        Total: {sum} {currentData[0].accountCurrency}
-                    </div>
-                )}
+            {sum === 0 ? (
+                <div className="text-4xl font-bold text-center my-10">
+                    No transactions found
+                </div>
+            ) : (
+
+                <div className="text-4xl font-bold text-center my-10">
+                    Total: {sum} {data.settings[0].currency}
+                </div>
+            )}
+            <div className='flex flex-wrap flex-row'>
                 {
                     accounts.map((item: any) => (
                         <div className="p-5 lg:w-48 md:w-72 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
@@ -63,7 +72,7 @@ export const Accounts = () => {
                             <p
                                 key={item.id + 'day'}
                                 className="text-slate-500 dark:text-slate-300 text-sm font-medium">
-                                {item.currency}
+                                {data.settings[0].currency}
                             </p>
                             <p
                                 key={item.id + 'day'}
@@ -94,7 +103,7 @@ export const Accounts = () => {
 
                                 <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
                                     <Link to={`/Category/`}
-                                        onClick={() => localStorage.setItem('category', item.categoryName)}>
+                                        onClick={() => localStorage.setItem('categoryName', item.categoryName)}>
                                         <p key={item.id + 'categoryName'}
                                             className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
                                             {/* {item.categoryIcon} */}
@@ -103,7 +112,7 @@ export const Accounts = () => {
                                         </p>
                                     </Link>
                                     <Link to={`/Accounts/`}
-                                        onClick={() => localStorage.setItem('account', item.accountName)}>
+                                        onClick={() => localStorage.setItem('accountName', item.accountName)}>
                                         <p key={item.id + 'account name'}
                                             className="bg-white p-2 dark:bg-gray-900 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
                                             {/* {item.accountIcon} */}

@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
+import { DateFilter } from '../hooks/DateFilter.tsx'
 
 export const Dashboard = () => {
     const [data, setData] = useState<any>([])
+    const [year, setYear] = useState('')
+    const [month, setMonth] = useState('')
 
+    // FETCH THE LOCALLY SAVED DATA 
     useEffect(() => {
         const theData = localStorage.getItem('theData') || ''
         if (theData !== '') setData(JSON.parse(theData))
@@ -18,11 +22,13 @@ export const Dashboard = () => {
         )
     }
 
-    // only show 100 transactions
-    const currentData = data.transactions.slice(0, 100)
+    const currentData = data.transactions.filter((item: any) => item.transactionMonth.toString() === month.toString() &&
+        item.transactionYear.toString() === year.toString())
 
     return (
         <div className="container mb-32 flex flex-wrap flex-col mx-auto justify-center items-center">
+            <DateFilter yearC={year} setYearC={setYear}
+                monthC={month} setMonthC={setMonth} />
             <div className="flex flex-wrap flex-row mx-auto justify-center items-center">
                 {currentData.map((item: any) => (
                     <div className="flex justify-center slide-r">
