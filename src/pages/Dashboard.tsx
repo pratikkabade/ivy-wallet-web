@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
-import { DateFilter } from '../hooks/DateFilter.tsx'
+import { DateFilter } from '../hooks/DateFilter'
 
 export const Dashboard = () => {
     const [data, setData] = useState<any>([])
@@ -22,7 +22,9 @@ export const Dashboard = () => {
         )
     }
 
-    const currentData = data.transactions.filter((item: any) => item.transactionMonth.toString() === month.toString() &&
+    // dont show any transfer transactions
+    const currentData1 = data.transactions.filter((item: any) => item.type !== "TRANSFER")
+    const currentData = currentData1.filter((item: any) => item.transactionMonth.toString() === month.toString() &&
         item.transactionYear.toString() === year.toString())
 
     return (

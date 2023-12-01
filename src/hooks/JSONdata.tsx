@@ -55,9 +55,18 @@ export const JSONdata = () => {
             return item
         })
 
+        // remove items with no dateTime
+        currentData.filter((item: any) => item.dateTime !== undefined)
+
         // dateTime to year and month
         currentData.map((item: any) => {
             const dt = item.dateTime
+
+            if (dt === undefined) {
+                item.transactionYear = "N/A"
+                item.transactionMonth = "N/A"
+                return item
+            }
 
             item.transactionYear = getYear(dt)
             item.transactionMonth = getMonth(dt)

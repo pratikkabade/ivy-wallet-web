@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
-import { DateFilter } from '../hooks/DateFilter.tsx'
+import { DateFilter } from '../hooks/DateFilter'
 
 export const Accounts = () => {
     const [data, setData] = useState<any>([])

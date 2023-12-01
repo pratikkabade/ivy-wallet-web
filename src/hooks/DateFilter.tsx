@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { monthOptions, yearOptions } from "../data/DateOptions.tsx"
+import { monthOptions, yearOptions } from "../data/DateOptions"
 
 type ReasonsProp = {
     yearC: string;
