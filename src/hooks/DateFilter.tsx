@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react"
 import { monthOptions, yearOptions } from "../constants/DateOptions"
 
-type ReasonsProp = {
+type DateProps = {
     yearC: string;
     setYearC: React.Dispatch<React.SetStateAction<string>>;
     monthC: string;
     setMonthC: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const DateFilter = (props: ReasonsProp) => {
+export const DateFilter = (props: DateProps) => {
     const today = new Date().toISOString()
-    const todaysYr = today.slice(0,4)
-    const todaysM = today.slice(5,7)
+    const todaysYr = today.slice(0, 4)
+    const todaysM = today.slice(5, 7)
 
     const [showYr, setShowYr] = useState(false)
     const [showM, setShowM] = useState(false)
@@ -23,23 +23,23 @@ export const DateFilter = (props: ReasonsProp) => {
     function saveM(m: any) {
         props.setMonthC(m)
     }
-    
+
     useEffect(() => {
         saveYr(todaysYr)
         saveM(todaysM)
     }, [])
 
     return (
-        <div className="w-full">
+        <div className="w-full bg-rose-100 dark:bg-rose-900 p-5 rounded-3xl my-5">
             <div className="flex flex-row justify-start items-start content-start slide-down">
-                <div className="p-5 lg:w-48 md:w-72 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
+                <div className="p-5 lg:w-48 md:w-72 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
                     onClick={() => (setShowYr(!showYr))}
                     style={showYr ? { border: "2px solid #10B981" } : { border: "none" }}>
                     <p className="text-xl font-bold">
                         Year
                     </p>
                 </div>
-                <div className="p-5 lg:w-48 md:w-72 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
+                <div className="p-5 lg:w-48 md:w-72 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
                     onClick={() => (setShowM(!showM))}
                     style={showM ? { border: "2px solid #10B981" } : { border: "none" }}>
                     <p className="text-xl font-bold">
@@ -51,7 +51,7 @@ export const DateFilter = (props: ReasonsProp) => {
                 {
                     showYr &&
                     yearOptions.map((item: any) => (
-                        <div className="slide-down p-5 lg:w-24 md:w-36 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
+                        <div className="slide-down p-5 lg:w-24 md:w-36 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
                             onClick={() => (saveYr(item.value))}
                             style={item.value === props.yearC ? { border: "2px solid #10B981" } : { border: "none" }}>
                             <p className="text-xl font-bold">
@@ -65,7 +65,7 @@ export const DateFilter = (props: ReasonsProp) => {
                 {
                     showM &&
                     monthOptions.map((item: any) => (
-                        <div className="slide-down p-5 lg:w-20 md:w-24 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
+                        <div className="slide-down p-5 lg:w-20 md:w-24 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
                             onClick={() => (saveM(item.value))}
                             style={item.value === props.monthC ? { border: "2px solid #10B981" } : { border: "none" }}>
                             <p className="text-xl font-bold">
