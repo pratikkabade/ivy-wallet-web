@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom"
 import { getDate, getDay } from "../../utils/DateFunctions"
 import { androidColorToHex } from "../../utils/AndroidColorToHex"
 
-export const TransactionItem = (thisitem: any) => {
-    const item = thisitem.item
+type AccountProps = {
+    item: any;
+    accountC: string;
+    setAccountC: React.Dispatch<React.SetStateAction<string>>;
+    categoryC: string;
+    setCategoryC: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const TransactionItem = (props: AccountProps) => {
+    const item = props.item
     return (
         <div className="flex justify-center slide-r">
-            <div className="p-5 lg:w-96 md:w-72 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-default">
+            <div className="p-5 lg:w-96 md:w-72 m-5 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-default">
                 <p
                     key={item.id + 'date'}
                     className="text-xl font-bold">
@@ -19,23 +26,28 @@ export const TransactionItem = (thisitem: any) => {
                 </p>
 
                 <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
-                    <Link to={`/Category/`}
-                        onClick={() => localStorage.setItem('categoryName', item.categoryName)}>
+                    <div
+                        onClick={() =>{
+                            props.setCategoryC(item.categoryName)
+                            props.setAccountC('')
+                        }}>
                         <p key={item.id + 'categoryName'}
                             className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer"
                             style={{ backgroundColor: androidColorToHex(item.categoryColor) }}>
                             {item.categoryName}
                             {item.categorySum}
                         </p>
-                    </Link>
-                    <Link to={`/Accounts/`}
-                        onClick={() => localStorage.setItem('accountName', item.accountName)}>
+                    </div>
+                    <div
+                        onClick={() => {
+                            props.setAccountC(item.accountName)
+                        }}>
                         <p key={item.id + 'account name'}
                             className="p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer"
                             style={{ backgroundColor: androidColorToHex(item.accountColor) }}>
                             {item.accountName}
                         </p>
-                    </Link>
+                    </div>
                 </div>
 
                 <p key={item.id + 'id'} className="text-2xl font-bold my-3">
@@ -51,7 +63,7 @@ export const TransactionItem = (thisitem: any) => {
                     <abbr
                         key={item.id + 'currency'}
                         className="font-normal ml-2">
-                        {item.currency}
+                        {item.accountCurrency}
                     </abbr>
                 </p>
             </div>
