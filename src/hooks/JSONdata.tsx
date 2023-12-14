@@ -3,15 +3,15 @@ import { useEffect, useState } from "react"
 import { getMonth, getYear } from "./Functions"
 
 export const JSONdata = () => {
-    const [value, setValue] = useState<string>(localStorage.getItem('theURL') || "")
+    const [url, setUrl] = useState<string>(localStorage.getItem('theURL') || "")
     const [allow, setAllow] = useState<boolean>(false)
 
     const [data, setData] = useState<any>([])
     const [fetching, setFetch] = useState<boolean>(true)
 
-    // use axios
+    // use Axios to fetch data 
     function fetchData() {
-        axios.get(value)
+        axios.get(url)
             .then(res => {
                 setData(res.data)
             })
@@ -21,19 +21,51 @@ export const JSONdata = () => {
         setFetch(false)
     }
 
+    // load data if url is not empty
     useEffect(() => {
-        if (value !== '') {
+        if (url !== '') {
             setAllow(true)
         }
-    }, [value])
+    }, [url])
 
     fetching && fetchData()
 
     if (data.transactions !== undefined) {
-        const currentData = data.transactions.filter((item: any) => item.type !== "TRANSFER")
+        // ACCOUNTS array, calculate SUM from all transactions
+        const accountData = data.accounts.map((account: any) => {
+            const sum = data.transactions.filter((item: any) => item.accountId === account.id)
+                .filter((item: any) => item.dateTime !== undefined)     // items with NO DATETIME
+                .map((item: any) => item.type === "INCOME" ? item.amount : item.type === "EXPENSE" ? -item.amount : 0)  // EXPENSE or INCOME items
+                .reduce((acc: any, item: any) => acc + item, 0)         // reduce to SUM
 
-        // get name from accounts array using id from transactions
-        currentData.map((item: any) => {
+            account.sum = sum
+
+            return account
+        })
+
+        // CATEGORIES array, calculate SUM from all 
+        const categoryData = data.categories.map((category: any) => {
+            const sum = data.transactions.filter((item: any) => item.categoryId === category.id)
+                .filter((item: any) => item.dateTime !== undefined)     // items with NO DATETIME
+                .map((item: any) => item.type === "INCOME" ? item.amount : item.type === "EXPENSE" ? -item.amount : 0)  // EXPENSE or INCOME items
+                .reduce((acc: any, item: any) => acc + item, 0)         // reduce to SUM
+
+            category.sum = sum
+
+            return category
+        })
+
+        // SAVE ACCOUNTS, CATEGORIES to local storage
+        localStorage.setItem("accountData", JSON.stringify(accountData))
+        localStorage.setItem("categoryData", JSON.stringify(categoryData))
+    }
+
+
+    if (data.transactions !== undefined) {
+        const transactionsData = data.transactions.filter((item: any) => item.type !== "TRANSFER")
+
+        // get name from ACCOUNTS array using ID from TRANSACTIONS
+        transactionsData.map((item: any) => {
             const account = data.accounts.find((account: any) => account.id === item.accountId)
 
             item.accountName = account.name
@@ -44,8 +76,8 @@ export const JSONdata = () => {
             return item
         })
 
-        // get name form categories array using id from transactions
-        currentData.map((item: any) => {
+        // get name from CATEGORIES array using ID from TRANSACTIONS
+        transactionsData.map((item: any) => {
             const category = data.categories.find((category: any) => category.id === item.categoryId)
 
             item.categoryName = category.name
@@ -55,11 +87,11 @@ export const JSONdata = () => {
             return item
         })
 
-        // remove items with no dateTime
-        currentData.filter((item: any) => item.dateTime !== undefined)
+        // filter out items with NO DATETIME
+        transactionsData.filter((item: any) => item.dateTime !== undefined)
 
-        // dateTime to year and month
-        currentData.map((item: any) => {
+        // get YEAR and MONTH from DATETIME
+        transactionsData.map((item: any) => {
             const dt = item.dateTime
 
             if (dt === undefined) {
@@ -78,7 +110,7 @@ export const JSONdata = () => {
     }
 
     const saveToLocalStorage = () => {
-        localStorage.setItem("theURL", value)
+        localStorage.setItem("theURL", url)
         localStorage.setItem("theData", JSON.stringify(data))
     }
 
@@ -92,7 +124,7 @@ export const JSONdata = () => {
                         className="m-3"
                         onChange={() => {
                             setAllow(!allow)
-                            setValue('')
+                            setUrl('')
                         }}
                         checked={allow} />
                     <div className="block dark:text-white">
@@ -111,8 +143,8 @@ export const JSONdata = () => {
                     <input
                         className="w-full mx-2 px-3 py-1.5 text-base font-normal text-gray-800 dark:text-gray-300 bg-clip-padding border focus:border-2 border-solid border-blue-100 dark:border-gray-700 transition ease-in-out m-0 focus:text-gray-900 dark:focus:text-gray-200 focus:border-blue-600 focus:outline-none bg-gray-100 dark:bg-gray-800 shadow-md hover:shadow-lg rounded-lg hover:rounded-lg focus:rounded-lg"
                         type="text"
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)} />
+                        value={url}
+                        onChange={(e) => setUrl(e.target.value)} />
                     :
                     <input disabled
                         className="w-full mx-2 px-3 py-1.5 text-base font-normal text-red-800 dark:text-red-300 bg-clip-padding border focus:border-2 border-solid border-blue-100 dark:border-red-700 m-0 focus:text-red-900 dark:focus:text-red-200 focus:border-blue-600 focus:outline-none bg-red-100 dark:bg-red-900 shadow-md rounded-lg focus:rounded-lg hover:cursor-not-allowed"
