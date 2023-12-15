@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getDate, getDay } from '../hooks/Functions'
+import { androidColorToHex } from '../hooks/Functions'
 import { LoadingComponent } from '../components/LoadingComponent'
-import { Link } from 'react-router-dom'
 import { DateFilter } from '../hooks/DateFilter'
+import { TransactionItem } from '../components/TransactionItem'
 
 export const Accounts = () => {
     const [data, setData] = useState<any>([])
@@ -27,8 +27,8 @@ export const Accounts = () => {
     const currentData = currentData1.filter((item: any) => item.transactionMonth.toString() === month.toString() &&
         item.transactionYear.toString() === year.toString())
 
-    // show all accounts
-    const accounts = data.accounts
+    // show all accounts from local storage
+    const accounts = localStorage.getItem('accountData') !== null ? JSON.parse(localStorage.getItem('accountData') || '') : []
 
     // save function
     function save(acName: any) {
@@ -47,20 +47,20 @@ export const Accounts = () => {
                 monthC={month} setMonthC={setMonth} />
 
             {sum === 0 ? (
-                <div className="text-4xl font-bold text-center my-10">
+                <div className="text-4xl font-bold text-center my-10 fade-in2">
                     No transactions found
                 </div>
             ) : (
 
-                <div className="text-4xl font-bold text-center my-10">
+                <div className="text-4xl font-bold text-center my-10 fade-in2">
                     Total: {sum} {data.settings[0].currency}
                 </div>
             )}
             <div className='flex flex-wrap flex-row'>
                 {
                     accounts.map((item: any) => (
-                        <div className="p-5 lg:w-48 md:w-72 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
-                            style={item.name === account ? { border: "2px solid #10B981" } : { border: "none" }}
+                        <div className="p-5 lg:w-48 md:w-72 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
+                            style={item.name === account ? { border: "2px solid #10B981", backgroundColor: androidColorToHex(item.color) } : { border: "none", backgroundColor: androidColorToHex(item.color) }}
                             onClick={() => (
                                 save(item.name)
                             )}>
@@ -70,14 +70,9 @@ export const Accounts = () => {
                                 {item.name}
                             </p>
                             <p
-                                key={item.id + 'day'}
+                                key={item.id + 'sum'}
                                 className="text-slate-500 dark:text-slate-300 text-sm font-medium">
-                                {data.settings[0].currency}
-                            </p>
-                            <p
-                                key={item.id + 'day'}
-                                className="text-slate-500 dark:text-slate-300 text-sm font-medium">
-                                {item.balance}
+                                {item.sum} {item.currency}
                             </p>
                         </div>
                     ))
@@ -88,58 +83,7 @@ export const Accounts = () => {
                     // only show transaction with same account name
                     currentData.map((item: any) => (
                         item.accountName === account &&
-                        <div className="flex justify-center slide-r">
-                            <div className="p-5 lg:w-96 md:w-72 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-default">
-                                <p
-                                    key={item.id + 'date'}
-                                    className="text-xl font-bold">
-                                    {getDate(item.dateTime)}
-                                </p>
-                                <p
-                                    key={item.id + 'day'}
-                                    className="text-slate-500 dark:text-slate-300 text-sm font-medium">
-                                    {getDay(item.dateTime)}
-                                </p>
-
-                                <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
-                                    <Link to={`/Category/`}
-                                        onClick={() => localStorage.setItem('categoryName', item.categoryName)}>
-                                        <p key={item.id + 'categoryName'}
-                                            className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
-                                            {/* {item.categoryIcon} */}
-                                            {/* {item.categoryColor} */}
-                                            {item.categoryName}
-                                        </p>
-                                    </Link>
-                                    <Link to={`/Accounts/`}
-                                        onClick={() => localStorage.setItem('accountName', item.accountName)}>
-                                        <p key={item.id + 'account name'}
-                                            className="bg-white p-2 dark:bg-gray-900 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
-                                            {/* {item.accountIcon} */}
-                                            {/* {item.accountColor} */}
-                                            {item.accountName}
-                                        </p>
-                                    </Link>
-                                </div>
-
-                                <p key={item.id + 'id'} className="text-2xl font-bold my-3">
-                                    {item.title}
-                                </p>
-                                <p key={item.id + 'description'} className="text-slate-500 dark:text-slate-200 my-3">
-                                    {item.description}
-                                </p>
-                                <p key={item.id + 'amount'}
-                                    className={`text-5xl font-extrabold ml-12 flex flex-wrap 
-                        ${item.type === "EXPENSE" ? "" : "text-green-500"}`}>
-                                    {item.amount}
-                                    <abbr
-                                        key={item.id + 'currency'}
-                                        className="font-normal ml-2">
-                                        {item.currency}
-                                    </abbr>
-                                </p>
-                            </div>
-                        </div>
+                        <TransactionItem key={item.id} item={item} />
                     ))
                 }
             </div>
