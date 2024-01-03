@@ -15,10 +15,6 @@ export const Accounts = () => {
     const [account, setAccount] = useState<any>(acName)
     const [fetching, setFetch] = useState<boolean>(true)
 
-    // fetch the url from browser
-    var currentLocation = window.location.href;
-    console.log(currentLocation);
-
     // use axios
     function fetchData() {
         axios.get(url)
@@ -42,9 +38,7 @@ export const Accounts = () => {
         )
     }
 
-
-    // only show 100 transactions
-    const currentData = data.transactions.slice(0, 100)
+    const currentData = data.transactions.filter((item: any) => item.type !== "TRANSFER")
 
     // get name from accounts array using id from transactions
     currentData.map((item: any) => {
@@ -56,6 +50,8 @@ export const Accounts = () => {
         item.accountColor = color.color
         item.accountCurrency = currency.currency
         item.accountIcon = icon.icon
+
+        return item
     })
 
     // get name form categories array using id from transactions
@@ -66,6 +62,8 @@ export const Accounts = () => {
         item.category = category.name
         item.color = color.color
         item.icon = icon.icon
+
+        return item
     })
 
     // show all accounts
@@ -77,10 +75,24 @@ export const Accounts = () => {
         setAccount(nm)
     }
 
+    // find the sum of all transaction in the account
+    const sum = currentData.filter((item: any) => item.accountName === account)
+        .reduce((acc: any, item: any) => acc + item.amount, 0)
+
 
     return (
         <div className="container mb-32 mx-auto justify-center items-center">
             <div className='flex flex-wrap flex-row'>
+                {sum === 0 ? (
+                    <div className="text-4xl font-bold text-center my-10">
+                        No transactions found
+                    </div>
+                ) : (
+
+                    <div className="text-4xl font-bold text-center my-10">
+                        Total: {sum} {currentData[0].accountCurrency}
+                    </div>
+                )}
                 {
                     accounts.map((item: any) => (
                         <div className="p-5 lg:w-48 md:w-72 m-1 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-110 transition duration-300 ease-in-out"
@@ -126,7 +138,7 @@ export const Accounts = () => {
                                 </p>
 
                                 <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
-                                    <Link to={`/Category/${item.category}`}
+                                    <Link to={`/Category/`}
                                         onClick={() => localStorage.setItem('category', item.category)}>
                                         <p key={item.id + 'category'}
                                             className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
@@ -135,7 +147,7 @@ export const Accounts = () => {
                                             {item.category}
                                         </p>
                                     </Link>
-                                    <Link to={`/Accounts/${item.accountName}`}
+                                    <Link to={`/Accounts/`}
                                         onClick={() => localStorage.setItem('account', item.accountName)}>
                                         <p key={item.id + 'account name'}
                                             className="bg-white p-2 dark:bg-gray-900 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">

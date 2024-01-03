@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Tutorial } from "../components/Tutorial"
-import { Dashboard } from "../components/Dashboard"
+import { Dashboard } from "./Dashboard"
 import { Button } from "flowbite-react"
 
 export const Home = () => {

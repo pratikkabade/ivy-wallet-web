@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
-import { PlusButton } from './add-functionalities/PlusButton'
-import { LoadingComponent } from './LoadingComponent'
+import { PlusButton } from '../components/add-functionalities/PlusButton'
+import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
 
 export const Dashboard = () => {
     const [data, setData] = useState<any>([])
+    const [fetching, setFetch] = useState<boolean>(true)
 
     // fetch url from local storage
     const url = localStorage.getItem('theURL') || ''
@@ -20,10 +21,11 @@ export const Dashboard = () => {
             .catch(err => {
                 console.log(err)
             })
+        setFetch(false)
     }
 
     useEffect(() => {
-        fetchData()
+        fetching && fetchData()
     })
 
     // load page after data is fetched
@@ -33,6 +35,9 @@ export const Dashboard = () => {
         )
     }
 
+    const username = data.settings[0].name
+    localStorage.setItem('username', username)
+    // console.log(username)
 
     // only show 100 transactions
     const currentData = data.transactions.slice(0, 100)
@@ -47,6 +52,8 @@ export const Dashboard = () => {
         item.accountColor = color.color
         item.accountCurrency = currency.currency
         item.accountIcon = icon.icon
+
+        return item
     })
 
     // get name form categories array using id from transactions
@@ -57,6 +64,8 @@ export const Dashboard = () => {
         item.category = category.name
         item.color = color.color
         item.icon = icon.icon
+
+        return item
     })
 
 
@@ -79,7 +88,7 @@ export const Dashboard = () => {
                             </p>
 
                             <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
-                                <Link to={`/Category/${item.category}`}
+                                <Link to={`/Category/`}
                                     onClick={() => localStorage.setItem('category', item.category)}>
                                     <p key={item.id + 'category'}
                                         className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
@@ -88,7 +97,7 @@ export const Dashboard = () => {
                                         {item.category}
                                     </p>
                                 </Link>
-                                <Link to={`/Accounts/${item.accountName}`}
+                                <Link to={`/Accounts/`}
                                     onClick={() => localStorage.setItem('account', item.accountName)}>
                                     <p key={item.id + 'account name'}
                                         className="bg-white p-2 dark:bg-gray-900 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
