@@ -31,18 +31,20 @@ export const TimeWidget = (dateProps: dateProp) => {
 
     return (
         <>
-            <div className="bg-slate-50 hover:bg-slate-50 rounded-3xl hover:shadow-md p-4 w-fit text-center cursor-pointer"
+            <div className="bg-slate-50 hover:bg-slate-50 rounded-3xl hover:shadow-md p-4 w-fit text-center cursor-pointer flex flex-col max-lg:flex-row"
                 onClick={() => (
                     props.setOpenModal('default')
                 )}>
                 <div className="text-5xl">
                     {formattedTime}
                 </div>
-                <div className="font-bold text-lg">
-                    {weekday}
-                </div>
-                <div className="text-2xl">
-                    {date}
+                <div className="max-lg:ml-3">
+                    <div className="font-bold text-lg">
+                        {weekday}
+                    </div>
+                    <div className="text-2xl">
+                        {date}
+                    </div>
                 </div>
             </div>
             <Modal className="fade-in h-screen" show={props.openModal === 'default'} onClose={() => setOpenModal(undefined)}>

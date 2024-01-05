@@ -4,7 +4,10 @@ const theData = localStorage.getItem('theData')
 
 const uniqueYearsArray = []
 
-if (theData === undefined) {
+// theData is string but convert it to array
+const theDataParsed = JSON.parse(theData?.toString() || '[]')
+
+if (theDataParsed.transactions === null) {
     const data = () => {
         const theData = localStorage.getItem('theData') || ''
 
@@ -40,6 +43,7 @@ if (theData === undefined) {
 
         return { uniqueTransactions }
     }
+    console.log(data())
 
     const uniqueYears = data().uniqueTransactions
         .reduce((acc: any, current: any) => {

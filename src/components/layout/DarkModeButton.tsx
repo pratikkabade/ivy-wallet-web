@@ -25,10 +25,18 @@ export default function DarkModeButton() {
 
 
     return (
-        <DarkModeSwitch
-            checked={darkSide}
-            onChange={toggleDarkMode}
-            size={30}
-        />
+        <div onClick={toggleDarkMode}>
+            <p className="text-xl my-2">Dark Mode</p>
+            <div className="flex flex-row justify-between align-middle items-center">
+                <p>
+                    Toggle dark mode {darkSide ? "off" : "on"}
+                </p>
+                <DarkModeSwitch
+                    checked={darkSide}
+                    onChange={toggleDarkMode}
+                    size={30}
+                />
+            </div>
+        </div>
     );
 }
