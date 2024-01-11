@@ -40,7 +40,7 @@ export const Dashboard = () => {
 
                             <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
                                 <Link to={`/Category/`}
-                                    onClick={() => localStorage.setItem('category', item.categoryName)}>
+                                    onClick={() => localStorage.setItem('categoryName', item.categoryName)}>
                                     <p key={item.id + 'categoryName'}
                                         className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
                                         {/* {item.categoryIcon} */}
@@ -49,7 +49,7 @@ export const Dashboard = () => {
                                     </p>
                                 </Link>
                                 <Link to={`/Accounts/`}
-                                    onClick={() => localStorage.setItem('account', item.accountName)}>
+                                    onClick={() => localStorage.setItem('accountName', item.accountName)}>
                                     <p key={item.id + 'account name'}
                                         className="bg-white p-2 dark:bg-gray-900 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
                                         {/* {item.accountIcon} */}
