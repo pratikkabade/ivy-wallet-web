@@ -1,34 +1,17 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
-import { PlusButton } from '../components/add-functionalities/PlusButton'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
 
 export const Category = () => {
-    // fetch url from local storage
-    const url = localStorage.getItem('theURL') || ''
-    const nm = localStorage.getItem('category') || ''
-
     const [data, setData] = useState<any>([])
-    const [group, setGroup] = useState<any>(nm)
-    const [fetching, setFetch] = useState<boolean>(true)
-
-    // use axios
-    function fetchData() {
-        axios.get(url)
-            .then(res => {
-                setData(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        setFetch(false)
-    }
+    const [group, setGroup] = useState<any>(localStorage.getItem('categoryName') || '')
 
     useEffect(() => {
-        fetching && fetchData()
-    })
+        const theData = localStorage.getItem('theData') || ''
+        if (theData !== '') setData(JSON.parse(theData))
+    }, [])
+
 
     // load page after data is fetched
     if (data.transactions === undefined) {
@@ -39,52 +22,25 @@ export const Category = () => {
 
     const currentData = data.transactions.filter((item: any) => item.type !== "TRANSFER")
 
-    // get name from accounts array using id from transactions
-    currentData.map((item: any) => {
-        const account = data.accounts.find((account: any) => account.id === item.accountId)
-        const color = data.accounts.find((account: any) => account.id === item.accountId)
-        const currency = data.accounts.find((account: any) => account.id === item.accountId)
-        const icon = data.accounts.find((account: any) => account.id === item.accountId)
-
-        item.accountName = account.name
-        item.accountColor = color.color
-        item.accountCurrency = currency.currency
-        item.accountIcon = icon.icon
-
-        return item
-    })
-
-    // get name form categories array using id from transactions
-    currentData.map((item: any) => {
-        const category = data.categories.find((category: any) => category.id === item.categoryId)
-        const color = data.categories.find((category: any) => category.id === item.categoryId)
-        const icon = data.categories.find((category: any) => category.id === item.categoryId)
-        item.category = category.name
-        item.color = color.color
-        item.icon = icon.icon
-
-        return item
-    })
-
     // show all categories
     const categories = data.categories
 
     // save function
-    function save(nm: any) {
-        localStorage.setItem('category', nm)
-        setGroup(nm)
+    function save(cName: any) {
+        localStorage.setItem('categoryName', cName)
+        setGroup(cName)
     }
-    
+
     // get sum of transactions
-    const sum = currentData.filter((item: any) => item.category === group)
+    const sum = currentData.filter((item: any) => item.categoryName === group)
         .map((item: any) => item.amount)
         .reduce((acc: any, item: any) => acc + item, 0)
 
-        
+
     return (
         <div className="container mb-32 mx-auto justify-center items-center">
             <div className='flex flex-wrap flex-row'>
-            {sum === 0 ? (
+                {sum === 0 ? (
                     <div className="text-4xl font-bold text-center my-10">
                         No transactions found
                     </div>
@@ -122,7 +78,7 @@ export const Category = () => {
                 {
                     // only show transaction with same category name
                     currentData.map((item: any) => (
-                        item.category === group &&
+                        item.categoryName === group &&
 
                         <div className="flex justify-center slide-r">
                             <div className="p-5 lg:w-96 md:w-72 m-10 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-default">
@@ -139,12 +95,12 @@ export const Category = () => {
 
                                 <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
                                     <Link to={`/Category/`}
-                                        onClick={() => localStorage.setItem('category', item.category)}>
-                                        <p key={item.id + 'category'}
+                                        onClick={() => localStorage.setItem('category', item.categoryName)}>
+                                        <p key={item.id + 'categoryName'}
                                             className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
-                                            {/* {item.icon} */}
-                                            {/* {item.color} */}
-                                            {item.category}
+                                            {/* {item.categoryIcon} */}
+                                            {/* {item.categoryColor} */}
+                                            {item.categoryName}
                                         </p>
                                     </Link>
                                     <Link to={`/Accounts/`}
@@ -179,7 +135,6 @@ export const Category = () => {
 
                     ))
                 }
-                <PlusButton />
             </div>
         </div>
     )

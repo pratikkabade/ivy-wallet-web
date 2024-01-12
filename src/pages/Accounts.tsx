@@ -1,35 +1,16 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getDate, getDay } from '../hooks/Functions'
-import { PlusButton } from '../components/add-functionalities/PlusButton'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { Link } from 'react-router-dom'
 
 export const Accounts = () => {
-    // fetch url from local storage
-    const url = localStorage.getItem('theURL') || ''
-    const acName = localStorage.getItem('account') || ''
-
-    // states
     const [data, setData] = useState<any>([])
-    const [account, setAccount] = useState<any>(acName)
-    const [fetching, setFetch] = useState<boolean>(true)
-
-    // use axios
-    function fetchData() {
-        axios.get(url)
-            .then(res => {
-                setData(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        setFetch(false)
-    }
+    const [account, setAccount] = useState<any>(localStorage.getItem('accountName') || '')
 
     useEffect(() => {
-        fetching && fetchData()
-    })
+        const theData = localStorage.getItem('theData') || ''
+        if (theData !== '') setData(JSON.parse(theData))
+    }, [])
 
     // load page after data is fetched
     if (data.transactions === undefined) {
@@ -40,39 +21,13 @@ export const Accounts = () => {
 
     const currentData = data.transactions.filter((item: any) => item.type !== "TRANSFER")
 
-    // get name from accounts array using id from transactions
-    currentData.map((item: any) => {
-        const account = data.accounts.find((account: any) => account.id === item.accountId)
-        const color = data.accounts.find((account: any) => account.id === item.accountId)
-        const currency = data.accounts.find((account: any) => account.id === item.accountId)
-        const icon = data.accounts.find((account: any) => account.id === item.accountId)
-        item.accountName = account.name
-        item.accountColor = color.color
-        item.accountCurrency = currency.currency
-        item.accountIcon = icon.icon
-
-        return item
-    })
-
-    // get name form categories array using id from transactions
-    currentData.map((item: any) => {
-        const category = data.categories.find((category: any) => category.id === item.categoryId)
-        const color = data.categories.find((category: any) => category.id === item.categoryId)
-        const icon = data.categories.find((category: any) => category.id === item.categoryId)
-        item.category = category.name
-        item.color = color.color
-        item.icon = icon.icon
-
-        return item
-    })
-
     // show all accounts
     const accounts = data.accounts
 
     // save function
-    function save(nm: any) {
-        localStorage.setItem('account', nm)
-        setAccount(nm)
+    function save(acName: any) {
+        localStorage.setItem('accountName', acName)
+        setAccount(acName)
     }
 
     // find the sum of all transaction in the account
@@ -139,12 +94,12 @@ export const Accounts = () => {
 
                                 <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
                                     <Link to={`/Category/`}
-                                        onClick={() => localStorage.setItem('category', item.category)}>
-                                        <p key={item.id + 'category'}
+                                        onClick={() => localStorage.setItem('category', item.categoryName)}>
+                                        <p key={item.id + 'categoryName'}
                                             className="bg-green-100 dark:bg-green-800 p-2 px-10 m-1 rounded-full hover:shadow-md cursor-pointer">
-                                            {/* {item.icon} */}
-                                            {/* {item.color} */}
-                                            {item.category}
+                                            {/* {item.categoryIcon} */}
+                                            {/* {item.categoryColor} */}
+                                            {item.categoryName}
                                         </p>
                                     </Link>
                                     <Link to={`/Accounts/`}
@@ -178,7 +133,6 @@ export const Accounts = () => {
                         </div>
                     ))
                 }
-                <PlusButton />
             </div>
         </div>
     )
