@@ -1,0 +1,35 @@
+name: Feature Request
+description: Request a feature to make Ivy Wallet Web better
+title: "[FEATURE] "
+labels: ["user request"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "Explain in brief the problem you're facing"
+      placeholder: Currently, we are facing difficulties in ...
+      value: Currently, we are facing difficulties in
+    validations:
+      required: true
+  - type: textarea
+    id: moredetails
+    attributes:
+      label: Problem Statement
+      description:
+      placeholder: The specific challenges we are encountering include
+      value: The specific challenges we are encountering include
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Requirements?
+      description: Breakdown of tasks into minimal, manageable segments.
+      placeholder: |
+        - Task 1
+        - Task 2
+        - Task 3
+      value: "- [ ] "
+    validations:
+      required: true
