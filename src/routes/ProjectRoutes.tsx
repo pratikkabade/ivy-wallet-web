@@ -4,11 +4,16 @@ import { ProjectFooter } from "../components/fundamentals/ProjectFooter"
 import { ProjectNavbar } from "../components/fundamentals/ProjectNavbar"
 import { Home } from "../pages/Home"
 import { ScrollTop } from "../hooks/ScrollTop"
+import { Accounts } from "../pages/Accounts"
+import { Category } from "../pages/Category"
 
 
 export const Route_Items = [
     { name: "Home", link: "/", element: <Home /> },
-    { name: "Home", link: "/*", element: <Home /> },
+    { name: "Home", link: "/Accounts", element: <Accounts /> },
+    { name: "Home", link: "/Accounts/*", element: <Accounts /> },
+    { name: "Home", link: "/Category", element: <Category /> },
+    { name: "Home", link: "/Category/*", element: <Category /> },
 ]
 
 export const ProjectRoutes = () => {
