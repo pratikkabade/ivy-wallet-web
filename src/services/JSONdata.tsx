@@ -114,12 +114,35 @@ export const JSONdata = () => {
         localStorage.setItem("theData", JSON.stringify(data))
     }
 
-    saveToLocalStorage()
+    if (data.transactions !== undefined) {
+        saveToLocalStorage()
+    }
 
     return (
         <>
+            <p className="text-xl my-2">Your Data</p>
+            {
+                allow ?
+                    <div className="w-4/5">
+                        <input
+                            className="w-full mx-2 px-3 py-1.5 text-base font-normal text-gray-800 dark:text-gray-300 bg-clip-padding border focus:border-2 border-solid border-blue-100 dark:border-gray-700 transition ease-in-out m-0 focus:text-gray-900 dark:focus:text-gray-200 focus:border-blue-600 focus:outline-none bg-gray-100 dark:bg-gray-800 shadow-md hover:shadow-lg rounded-lg hover:rounded-lg focus:rounded-lg"
+                            type="text"
+                            value={url}
+                            onChange={(e) => {
+                                setUrl(e.target.value)
+                                localStorage.setItem("theURL", url)
+                            }} />
+                    </div>
+                    :
+                    <div className="w-4/5">
+                        <input disabled
+                            className="w-full mx-2 px-3 py-1.5 text-base font-normal text-red-800 dark:text-red-300 bg-clip-padding border focus:border-2 border-solid border-blue-100 dark:border-red-700 m-0 focus:text-red-900 dark:focus:text-red-200 focus:border-blue-600 focus:outline-none bg-red-100 dark:bg-red-900 shadow-md rounded-lg focus:rounded-lg hover:cursor-not-allowed"
+                            type="text"
+                        />
+                    </div>
+            }
             <label className="m-3 mb-5">
-                <div className="flex flex-row">
+                <div className="flex flex-row justify-center align-middle items-center">
                     <input type="checkbox"
                         className="m-3"
                         onChange={() => {
@@ -135,22 +158,18 @@ export const JSONdata = () => {
                         </button>
                         can store cookies on your device.
                     </div>
+                    {
+                        allow ?
+                            <button onClick={saveToLocalStorage} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-fit h-fit">
+                                Save
+                            </button>
+                            :
+                            <button disabled type="button" className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-100 font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-500 focus:outline-none dark:focus:ring-blue-600 w-fit h-fit hover:cursor-not-allowed">
+                                Save
+                            </button>
+                    }
                 </div>
             </label>
-
-            {
-                allow ?
-                    <input
-                        className="w-full mx-2 px-3 py-1.5 text-base font-normal text-gray-800 dark:text-gray-300 bg-clip-padding border focus:border-2 border-solid border-blue-100 dark:border-gray-700 transition ease-in-out m-0 focus:text-gray-900 dark:focus:text-gray-200 focus:border-blue-600 focus:outline-none bg-gray-100 dark:bg-gray-800 shadow-md hover:shadow-lg rounded-lg hover:rounded-lg focus:rounded-lg"
-                        type="text"
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)} />
-                    :
-                    <input disabled
-                        className="w-full mx-2 px-3 py-1.5 text-base font-normal text-red-800 dark:text-red-300 bg-clip-padding border focus:border-2 border-solid border-blue-100 dark:border-red-700 m-0 focus:text-red-900 dark:focus:text-red-200 focus:border-blue-600 focus:outline-none bg-red-100 dark:bg-red-900 shadow-md rounded-lg focus:rounded-lg hover:cursor-not-allowed"
-                        type="text"
-                    />
-            }
         </>
     )
 }
