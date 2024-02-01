@@ -1,4 +1,4 @@
-import { DataButton } from "./add-functionalities/DataButton"
+import { DataButton } from "./data/DataButton"
 
 export const Tutorial = () => {
 
