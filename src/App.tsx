@@ -1,5 +1,6 @@
 import './style/App.css';
-import './style/index.css';
+import './style/Tailwind.css';
+import './style/Animations.css';
 import { ProjectRoutes } from './routes/ProjectRoutes';
 
 function App() {
