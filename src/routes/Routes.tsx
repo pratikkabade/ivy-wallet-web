@@ -3,17 +3,12 @@ import { BrowserRouter, Routes } from "react-router-dom"
 import { ProjectFooter } from "../components/layout/ProjectFooter"
 import { ProjectNavbar } from "../components/layout/ProjectNavbar"
 import { Home } from "../pages/Home"
-import { ScrollTop } from "../hooks/ScrollTop"
-import { Accounts } from "../pages/Accounts"
-import { Category } from "../pages/Category"
+import { ScrollTop } from "../components/layout/ScrollTop"
 
 
 export const Route_Items = [
     { name: "Home", link: "/", element: <Home /> },
-    { name: "Home", link: "/Accounts", element: <Accounts /> },
-    { name: "Home", link: "/Accounts/*", element: <Accounts /> },
-    { name: "Home", link: "/Category", element: <Category /> },
-    { name: "Home", link: "/Category/*", element: <Category /> },
+    { name: "Home", link: "/*", element: <Home /> },
 ]
 
 export const ProjectRoutes = () => {
