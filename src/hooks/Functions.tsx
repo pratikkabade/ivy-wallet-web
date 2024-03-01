@@ -1,8 +1,10 @@
-export function getDay(mon: any) {
-    const str = new Date(mon).toDateString();
-    return str.substring(0, str.indexOf(' '))
+export function getDay(date: any) {
+    const d = new Date(date);
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[d.getDay()];
 }
-export function getDate(mon: any) {
-    const str = new Date(mon).toDateString();
-    return str.substring(str.indexOf(' '), str.length - 4)
+export function getDate(date: any) {
+    const m = new Date(date);
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return `${months[m.getMonth()]} ${m.getDate()}`;
 }
