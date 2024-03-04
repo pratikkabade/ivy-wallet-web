@@ -6,7 +6,8 @@ import { PlusButton } from './add-functionalities/PlusButton'
 export const Dashboard = () => {
     const [data, setData] = useState<any>([])
 
-    const url = 'https://raw.githubusercontent.com/dependabot-pr/ivy/main/data.json'
+    // fetch url from local storage
+    const url = localStorage.getItem('theURL') || ''
 
     // use axios
     function fetchData() {
@@ -21,7 +22,7 @@ export const Dashboard = () => {
 
     useEffect(() => {
         fetchData()
-    }, [])
+    })
     console.log(data.transactions)
 
 
@@ -47,10 +48,9 @@ export const Dashboard = () => {
                             <p
                                 className="text-xl font-bold">
                                 {getDate(item.dateTime)}
-                                <abbr
-                                    className="text-slate-500 dark:text-slate-300 text-lg font-medium">
-                                    {getDay(item.dateTime)}
-                                </abbr>
+                            </p>
+                            <p className="text-slate-500 dark:text-slate-300 text-sm font-medium">
+                                {getDay(item.dateTime)}
                             </p>
 
                             <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">

@@ -11,7 +11,7 @@ export const Tutorial = () => {
                 </p>
 
                 <p className="text-xl lg:text-3xl mb-10 text-left font-semibold">
-                    1. Go to <a className="text-blue-800 dark:text-blue-200 hover:brightness-150 hover:underline" href="https://www.github.com">GitHub</a>, create a new repository and upload the <code>json file</code>
+                    1. Go to <a className="text-sky-700 dark:text-sky-300 hover:brightness-150 hover:underline" href="https://www.github.com">GitHub</a>, create a new repository and upload the <code>json file</code>
                 </p>
 
                 <p className="text-xl lg:text-3xl mb-10 text-left font-semibold">
