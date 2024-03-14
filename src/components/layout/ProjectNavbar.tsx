@@ -1,4 +1,4 @@
-import DarkModeButton from "../../hooks/DarkModeButton"
+import DarkModeButton from "./DarkModeButton"
 import { Link } from 'react-router-dom';
 import { Route_Items } from "../../routes/Routes";
 
