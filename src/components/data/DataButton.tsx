@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button, Modal } from 'flowbite-react';
-import { JSONdata } from "../../hooks/JSONdata";
+import { JSONdata } from "../../services/JSONdata";
 
 export const DataButton = () => {
     const [openModal, setOpenModal] = useState<string | undefined>();

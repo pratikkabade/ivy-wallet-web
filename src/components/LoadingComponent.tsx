@@ -33,7 +33,6 @@ export const LoadingComponent = () => {
                         <span className="sr-only">Loading...</span>
                     </div>
 
-
                 </div>
                 <div id="chn2"></div>
             </div>

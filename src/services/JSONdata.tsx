@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { getMonth, getYear } from "./Functions"
+import { getMonth, getYear } from "../utils/DateFunctions"
 
 export const JSONdata = () => {
     const [url, setUrl] = useState<string>(localStorage.getItem('theURL') || "")

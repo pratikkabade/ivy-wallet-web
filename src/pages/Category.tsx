@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { androidColorToHex } from '../hooks/Functions'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { DateFilter } from '../hooks/DateFilter'
-import { TransactionItem } from '../components/TransactionItem'
+import { TransactionItem } from '../components/core/TransactionItem'
+import { androidColorToHex } from '../utils/AndroidColorToHex'
 
 export const Category = () => {
     const [data, setData] = useState<any>([])

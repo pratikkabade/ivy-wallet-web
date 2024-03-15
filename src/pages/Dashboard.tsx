@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { LoadingComponent } from '../components/LoadingComponent'
 import { DateFilter } from '../hooks/DateFilter'
-import { TransactionItem } from '../components/TransactionItem'
+import { TransactionItem } from '../components/core/TransactionItem'
 
 export const Dashboard = () => {
     const [data, setData] = useState<any>([])

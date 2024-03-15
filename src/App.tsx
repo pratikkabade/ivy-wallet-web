@@ -1,7 +1,7 @@
-import './style/App.css';
-import './style/Tailwind.css';
-import './style/Animations.css';
-import { ProjectRoutes } from './routes/ProjectRoutes';
+import './styles/App.css';
+import './styles/Tailwind.css';
+import './styles/Animations.css';
+import { ProjectRoutes } from './routes/Routes';
 
 function App() {
   return (

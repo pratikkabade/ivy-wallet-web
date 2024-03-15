@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import { androidColorToHex, getDate, getDay } from "../hooks/Functions"
+import { getDate, getDay } from "../../utils/DateFunctions"
+import { androidColorToHex } from "../../utils/AndroidColorToHex"
 
 export const TransactionItem = (thisitem: any) => {
     const item = thisitem.item
