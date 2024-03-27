@@ -57,3 +57,24 @@ html {
     right: -2rem;
     bottom: 3rem;
 }
+
+.scrl {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.scrl2 {
+    height: 50vh;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .scrl {
+        height: auto;
+        overflow-y: hidden;
+    }
+}
+
+.bg-opacity-50{
+    backdrop-filter: blur(3px) !important;
+}

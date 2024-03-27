@@ -16,18 +16,18 @@ export const TransactionItem = (props: AccountProps) => {
             <div className="p-5 lg:w-96 md:w-72 m-5 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:shadow-lg cursor-default">
                 <p
                     key={item.id + 'date'}
-                    className="text-xl font-bold">
+                    className="text-start text-xl font-bold">
                     {getDate(item.dateTime)}
                 </p>
                 <p
                     key={item.id + 'day'}
-                    className="text-slate-500 dark:text-slate-300 text-sm font-medium">
+                    className="text-start text-slate-500 dark:text-slate-300 text-sm font-medium">
                     {getDay(item.dateTime)}
                 </p>
 
                 <div className="flex flex-row flex-wrap justify-around text-lg font-bold my-5">
                     <div
-                        onClick={() =>{
+                        onClick={() => {
                             props.setCategoryC(item.categoryName)
                             props.setAccountC('')
                         }}>
@@ -53,7 +53,7 @@ export const TransactionItem = (props: AccountProps) => {
                 <p key={item.id + 'id'} className="text-2xl font-bold my-3">
                     {item.title}
                 </p>
-                <p key={item.id + 'description'} className="text-slate-500 dark:text-slate-200 my-3">
+                <p key={item.id + 'description'} className="text-lg text-slate-500 dark:text-slate-200 my-3">
                     {item.description}
                 </p>
                 <p key={item.id + 'amount'}
