@@ -9,8 +9,9 @@ import { TimeWidget } from '../widgets/Time'
 import { RemoveAccountButton } from '../components/buttons/RemoveAccountButton'
 import { RemoveCategoryButton } from '../components/buttons/RemoveCategoryButton'
 import { AnimatedLoader } from '../components/AnimatedLoader'
+import { Link } from 'react-router-dom'
 
-export const NewHome = () => {
+export const sa = () => {
     const [data, setData] = useState<any>([])
     const [year, setYear] = useState('')
     const [month, setMonth] = useState('')
@@ -30,8 +31,10 @@ export const NewHome = () => {
                 <div className='flex flex-col max-lg:flex-row justify-between align-middle items-center lg:w-72 px-5'>
                     <div className='flex flex-col max-lg:flex-row max-lg:justify-between justify-center items-center'>
                         <div className="text-4xl font-bold my-10">
-                            <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4"
-                                className="h-20 sm:h-16 rounded-xl" alt="Logo" />
+                            <Link to='/About'>
+                                <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4"
+                                    className="h-20 sm:h-16 rounded-xl" alt="Logo" />
+                            </Link>
                         </div>
                     </div>
                     <div className='flex flex-col max-lg:flex-row justify-center items-center align-middle'>
@@ -62,8 +65,10 @@ export const NewHome = () => {
             <div className='flex flex-col max-lg:flex-row justify-between align-middle items-center lg:w-72 px-5'>
                 <div className='flex flex-col max-lg:flex-row max-lg:justify-between justify-center items-center'>
                     <div className="text-4xl font-bold my-10">
-                        <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4"
-                            className="h-20 sm:h-16 rounded-xl" alt="Logo" />
+                        <Link to='/About'>
+                            <img src="https://avatars.githubusercontent.com/u/111740948?s=200&v=4"
+                                className="h-20 sm:h-16 rounded-xl" alt="Logo" />
+                        </Link>
                     </div>
                 </div>
                 <div className='flex flex-col max-lg:flex-row justify-center items-center align-middle'>

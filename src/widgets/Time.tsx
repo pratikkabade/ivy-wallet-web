@@ -31,7 +31,7 @@ export const TimeWidget = (dateProps: dateProp) => {
 
     return (
         <>
-            <div className="bg-slate-50 hover:bg-slate-50 rounded-3xl hover:shadow-md p-4 w-fit text-center cursor-pointer flex flex-col max-lg:flex-row"
+            <div className="bg-slate-50 dark:bg-slate-700 hover:brightness-95 dark:hover:brightness-125 rounded-3xl hover:shadow-md p-4 w-fit text-center cursor-pointer flex flex-col max-lg:flex-row"
                 onClick={() => (
                     props.setOpenModal('default')
                 )}>

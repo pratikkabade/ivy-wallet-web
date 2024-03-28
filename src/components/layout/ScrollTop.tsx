@@ -18,7 +18,7 @@ export const ScrollTop = (props: ScrollTopProps) => {
     window.addEventListener('scroll', scrollUp);
 
     return (
-        <button className={`scrollup bg-green-800 text-green-100 dark:bg-green-100  dark:text-green-800`} id="scroll-up" onClick={topFunction}>
+        <button className={`scrollup bg-sky-800 text-sky-100 dark:bg-sky-100  dark:text-sky-800`} id="scroll-up" onClick={topFunction}>
             <i className="fa-solid fa-angle-up"></i>
         </button>
     )

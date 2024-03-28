@@ -119,7 +119,7 @@ export const JSONdata = () => {
     }
 
     return (
-        <>
+        <div className="text-black dark:text-white">
             <p className="text-xl my-2">Your Data</p>
             {
                 allow ?
@@ -170,6 +170,6 @@ export const JSONdata = () => {
                     }
                 </div>
             </label>
-        </>
+        </div>
     )
 }

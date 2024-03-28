@@ -49,7 +49,7 @@ export const DateFilter = (props: DateProps) => {
             </div>
             {
                 showYr &&
-                <div className="flex flex-row flex-wrap bg-red-200 rounded-2xl p-2 my-1">
+                <div className="flex flex-row flex-wrap bg-rose-200 dark:bg-rose-700 rounded-2xl p-2 my-1">
                     {
                         yearOptions.map((item: any) => (
                             <div className="slide-down p-2 lg:w-24 md:w-36 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
@@ -65,7 +65,7 @@ export const DateFilter = (props: DateProps) => {
             }
             {
                 showM &&
-                <div className="flex flex-row flex-wrap bg-red-200 rounded-2xl p-2 my-1">
+                <div className="flex flex-row flex-wrap bg-rose-200 dark:bg-rose-700 rounded-2xl p-2 my-1">
                     {
                         monthOptions.map((item: any) => (
                             <div className="slide-down p-2 lg:w-20 md:w-24 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"

@@ -25,7 +25,7 @@ export default function DarkModeButton() {
 
 
     return (
-        <div onClick={toggleDarkMode}>
+        <div onClick={toggleDarkMode} className="text-black dark:text-white">
             <p className="text-xl my-2">Dark Mode</p>
             <div className="flex flex-row justify-between align-middle items-center">
                 <p>

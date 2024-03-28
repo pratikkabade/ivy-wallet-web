@@ -1,75 +1,58 @@
-import { FacebookLogo } from "../../assets/logo/Facebook"
-import { GithubLogo } from "../../assets/logo/Github"
-import { InstagramLogo } from "../../assets/logo/Instagram"
-import { LinkedinLogo } from "../../assets/logo/Linkedin"
-import { TwitterLogo } from "../../assets/logo/Twitter"
+import { useState } from "react"
 
 export const ProjectFooter = () => {
+
+    const [show, setShow] = useState(false)
+
     return (
         <footer className="text-center bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100">
-            <div className="container px-6 pt-6 mx-auto">
-                <div className="flex justify-center mb-6">
-                    <a href="#!" type="button" className="brightness-50 hover:brightness-100 transition duration-150 ease-in-out w-9 h-9 m-1">
-                        <FacebookLogo />
-                    </a>
-                    <a href="#!" type="button" className="brightness-50 hover:brightness-100 transition duration-150 ease-in-out w-9 h-9 m-1">
-                        <TwitterLogo />
-                    </a>
-                    <a href="#!" type="button" className="brightness-50 hover:brightness-100 transition duration-150 ease-in-out w-9 h-9 m-1">
-                        <LinkedinLogo />
-                    </a>
-                    <a href="#!" type="button" className="brightness-50 hover:brightness-100 transition duration-150 ease-in-out w-9 h-9 m-1">
-                        <InstagramLogo />
-                    </a>
-                    <a href="#!" type="button" className="brightness-50 hover:brightness-100 transition duration-150 ease-in-out w-9 h-9 m-1">
-                        <GithubLogo />
-                    </a>
-                </div>
-                <div>
-                </div>
-                <div className="mb-20">
-                    <p className="font-bold text-xl">
-                        IvyWallet
-                    </p>
-                </div>
-                <div className="grid lg:grid-cols-4 md:grid-cols-2">
-                    <div className="mb-6">
-                        <h5 className="uppercase font-bold mb-2.5">Links</h5>
-                        <ul className="list-none mb-0">
-                            <li>
-                                <a href="#!" className="text-gray-600 dark:text-gray-300">Link 1</a>
-                            </li>
-                        </ul>
+            {show &&
+                <div className="container px-6 pt-6 mx-auto slide-up">
+                    <div className="mb-20">
+                        <p className="font-bold text-xl" id="footer">
+                            Ivy-Wallet-Web
+                        </p>
                     </div>
-                    <div className="mb-6">
-                        <h5 className="uppercase font-bold mb-2.5">Links</h5>
-                        <ul className="list-none mb-0">
-                            <li>
-                                <a href="#!" className="text-gray-600 dark:text-gray-300">Link 1</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="mb-6">
-                        <h5 className="uppercase font-bold mb-2.5">Links</h5>
-                        <ul className="list-none mb-0">
-                            <li>
-                                <a href="#!" className="text-gray-600 dark:text-gray-300">Link 1</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="mb-6">
-                        <h5 className="uppercase font-bold mb-2.5">Links</h5>
-                        <ul className="list-none mb-0">
-                            <li>
-                                <a href="#!" className="text-gray-600 dark:text-gray-300">Link 1</a>
-                            </li>
-                        </ul>
+                    <div className="grid lg:grid-cols-2 md:grid-cols-1">
+                        <div className="mb-6">
+                            <h5 className="uppercase font-bold mb-2.5">
+                                ivy-wallet-web
+                            </h5>
+                            <ul className="list-none mb-0">
+                                <li>
+                                    <a href="https://github.com/pratikkabade/ivy-wallet-web/" className="text-gray-600 dark:text-gray-300 hover:brightness-125 hover:underline">
+                                        GitHub Repository
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/pratikkabade/ivy-wallet-web/issues" className="text-gray-600 dark:text-gray-300 hover:brightness-125 hover:underline">
+                                        Issues
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-6">
+                            <h5 className="uppercase font-bold mb-2.5">
+                                IvyWallet
+                            </h5>
+                            <ul className="list-none mb-0">
+                                <li>
+                                    <a href="https://github.com/Ivy-Apps/ivy-wallet" className="text-gray-600 dark:text-gray-300 hover:brightness-125 hover:underline">
+                                        GitHub Repository
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="text-center p-4" >
-                © 2023 IvyWallet
-            </div>
+            }
+            <a href="#footer">
+                <div className="text-center p-5 hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer" onClick={() => { setShow(!show) }}>
+                    © 2024 Ivy-Wallet-Web
+                    {show ? <i className="fas fa-chevron-up ml-2"></i> : <i className="fas fa-chevron-down ml-2"></i>}
+                </div>
+            </a>
         </footer>
     )
 }

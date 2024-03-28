@@ -1,21 +1,20 @@
 import { Route } from "react-router"
 import { BrowserRouter, Routes } from "react-router-dom"
-import { ProjectFooter } from "../components/layout/ProjectFooter"
-import { ProjectNavbar } from "../components/layout/ProjectNavbar"
 import { Home } from "../pages/Home"
 import { ScrollTop } from "../components/layout/ScrollTop"
+import { Dashboard } from "../pages/Dashboard"
 
 
 export const Route_Items = [
-    { name: "Home", link: "/", element: <Home /> },
-    { name: "Home", link: "/*", element: <Home /> },
+    { name: "Home", link: "/", element: <Dashboard /> },
+    { name: "Home", link: "/About", element: <Home /> },
+    { name: "Dashboard", link: "/*", element: <Home /> },
 ]
 
 export const ProjectRoutes = () => {
     return (
         <div>
             <BrowserRouter>
-                <ProjectNavbar />
 
                 <Routes>
                     {
@@ -30,7 +29,6 @@ export const ProjectRoutes = () => {
                     }
                 </Routes>
 
-                <ProjectFooter />
                 <ScrollTop col={"green"} />
 
             </BrowserRouter>
