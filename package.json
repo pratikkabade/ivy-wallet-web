@@ -1,7 +1,7 @@
 {
   "name": "ivy-wallet-web",
-  "version": "0.3.3",
-  "description": "Generated from https://github.com/Self-Generator/javaScript-frameworks",
+  "version": "1.0.0",
+  "description": "The Ivy Wallet Web is a web version of the popular Android money management app, Ivy Wallet. It is built with React, TypeScript, and Tailwind CSS.",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

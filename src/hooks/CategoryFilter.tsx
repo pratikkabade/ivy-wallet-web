@@ -17,6 +17,7 @@ export const CategoryFilter = (props: CategoryProps) => {
                 {
                     categories.map((item: any) => (
                         <div className="p-5 lg:w-48 md:w-40 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
+                            key={item.name}
                             style={item.name === props.categoryC ?
                                 { backgroundColor: androidColorToHex(item.color) }
                                 : { backgroundColor: androidColorToHex(item.color) }}

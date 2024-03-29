@@ -54,7 +54,8 @@ export const DateFilter = (props: DateProps) => {
                         yearOptions.map((item: any) => (
                             <div className="slide-down p-2 lg:w-24 md:w-36 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
                                 onClick={() => (saveYr(item.value))}
-                                style={item.value === props.yearC ? { border: "2px solid #10B981" } : { border: "none" }}>
+                                style={item.value === props.yearC ? { border: "2px solid #10B981" } : { border: "none" }}
+                                key={item.value}>
                                 <p className="text-xl font-bold">
                                     {item.value}
                                 </p>
@@ -70,7 +71,8 @@ export const DateFilter = (props: DateProps) => {
                         monthOptions.map((item: any) => (
                             <div className="slide-down p-2 lg:w-20 md:w-24 m-1 rounded-2xl hover:shadow-lg cursor-pointer hover:brightness-95 transition duration-300 ease-in-out bg-white"
                                 onClick={() => (saveM(item.value))}
-                                style={item.value === props.monthC ? { border: "2px solid #10B981" } : { border: "none" }}>
+                                style={item.value === props.monthC ? { border: "2px solid #10B981" } : { border: "none" }}
+                                key={item.value}>
                                 <p className="text-xl font-bold">
                                     {item.name.slice(0, 3)}
                                 </p>

@@ -20,12 +20,12 @@ export const ProjectFooter = () => {
                             </h5>
                             <ul className="list-none mb-0">
                                 <li>
-                                    <a href="https://github.com/pratikkabade/ivy-wallet-web/" className="text-gray-600 dark:text-gray-300 hover:brightness-125 hover:underline">
+                                    <a href="https://github.com/pratikkabade/ivy-wallet-web/" className="text-sky-700 dark:text-sky-300 hover:brightness-125 hover:underline">
                                         GitHub Repository
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/pratikkabade/ivy-wallet-web/issues" className="text-gray-600 dark:text-gray-300 hover:brightness-125 hover:underline">
+                                    <a href="https://github.com/pratikkabade/ivy-wallet-web/issues" className="text-sky-700 dark:text-sky-300 hover:brightness-125 hover:underline">
                                         Issues
                                     </a>
                                 </li>
@@ -38,7 +38,7 @@ export const ProjectFooter = () => {
                             </h5>
                             <ul className="list-none mb-0">
                                 <li>
-                                    <a href="https://github.com/Ivy-Apps/ivy-wallet" className="text-gray-600 dark:text-gray-300 hover:brightness-125 hover:underline">
+                                    <a href="https://github.com/Ivy-Apps/ivy-wallet" className="text-sky-700 dark:text-sky-300 hover:brightness-125 hover:underline">
                                         GitHub Repository
                                     </a>
                                 </li>
