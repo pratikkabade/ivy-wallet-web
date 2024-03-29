@@ -3,6 +3,7 @@ import { Modal } from "flowbite-react";
 import { JSONdata } from "../../services/JSONdata";
 import { ClearData } from "../data/ClearData";
 import DarkModeButton from "../layout/DarkModeButton";
+import { SetPin } from "../../security/SetPin";
 
 export const SettingsButton = () => {
     const [openModal, setOpenModal] = useState<string | undefined>();
@@ -38,7 +39,10 @@ export const SettingsButton = () => {
                         </div>
                         <div className="bg-sky-100 dark:bg-sky-800 m-1 p-3 rounded-xl">
                             <JSONdata />
-                        </div>
+                        </div>                        
+                        <div className="bg-sky-100 dark:bg-sky-800 m-1 p-3 rounded-xl">
+                            <SetPin />
+                        </div>                        
                         <div className="bg-sky-100 dark:bg-sky-800 m-1 p-3 rounded-xl">
                             <ClearData />
                         </div>

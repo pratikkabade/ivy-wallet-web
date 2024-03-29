@@ -3,7 +3,7 @@ import { BrowserRouter, Routes } from "react-router-dom"
 import { Home } from "../pages/Home"
 import { ScrollTop } from "../components/layout/ScrollTop"
 import { Dashboard } from "../pages/Dashboard"
-
+import { AskPin } from "../security/AskPin"
 
 export const Route_Items = [
     { name: "Home", link: "/", element: <Dashboard /> },
@@ -15,7 +15,7 @@ export const ProjectRoutes = () => {
     return (
         <div>
             <BrowserRouter>
-
+                    <AskPin />
                 <Routes>
                     {
                         Route_Items.map((item, index) => {
