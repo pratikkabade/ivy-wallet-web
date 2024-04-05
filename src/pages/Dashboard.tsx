@@ -28,7 +28,7 @@ export const Dashboard = () => {
     if (data.transactions === undefined) {
         return (
             <div className='flex flex-col lg:flex-row w-full'>
-                <div className='flex flex-col max-lg:flex-row justify-between align-middle items-center lg:w-72 px-5'>
+                <div className='flex flex-col max-lg:flex-row justify-between align-middle items-center lg:w-72 px-5 lg:h-screen'>
                     <div className='flex flex-col max-lg:flex-row max-lg:justify-between justify-center items-center'>
                         <div className="text-4xl font-bold my-10">
                             <Link to='/About'>
@@ -62,7 +62,7 @@ export const Dashboard = () => {
 
     return (
         <div className='flex flex-col lg:flex-row w-full'>
-            <div className='flex flex-col max-lg:flex-row justify-between align-middle items-center lg:w-72 px-5'>
+            <div className='flex flex-col max-lg:flex-row justify-between align-middle items-center lg:w-72 px-5 lg:h-screen'>
                 <div className='flex flex-col max-lg:flex-row max-lg:justify-between justify-center items-center'>
                     <div className="text-4xl font-bold my-10">
                         <Link to='/About'>
@@ -79,7 +79,7 @@ export const Dashboard = () => {
             <div id='ch1'>
                 <AnimatedLoader />
             </div>
-            <div id='ch2' className="hidden  flex-col w-full text-4xl font-bold text-center py-10 fade-in scrl">
+            <div id='ch2' className="hidden  flex-col w-full text-4xl font-bold text-center py-10 fade-in scrl max-lg:h-screen">
                 {sum === 0 ?
                     <div className='text-red-500'>
                         No Transactions Found

@@ -26,7 +26,7 @@ export const DataButton = () => {
                     Add the URL <i className="fa-solid fa-plus ml-2"></i>
                 </Button>
             </div>
-            <Modal className="fade-in" show={props.openModal === 'default'} onClose={() => props.setOpenModal(undefined)}>
+            <Modal className="fade-in h-screen" show={props.openModal === 'default'} onClose={() => props.setOpenModal(undefined)}>
                 <Modal.Header>
                     Add the URL
                 </Modal.Header>

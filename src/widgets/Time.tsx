@@ -35,10 +35,10 @@ export const TimeWidget = (dateProps: dateProp) => {
                 onClick={() => (
                     props.setOpenModal('default')
                 )}>
-                <div className="text-5xl">
+                <div className="text-5xl max-sm:hidden">
                     {formattedTime}
                 </div>
-                <div className="max-lg:ml-3">
+                <div className="max-lg:ml-3 max-sm:ml-0">
                     <div className="font-bold text-lg">
                         {weekday}
                     </div>
