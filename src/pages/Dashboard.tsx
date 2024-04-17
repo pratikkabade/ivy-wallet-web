@@ -79,7 +79,7 @@ export const Dashboard = () => {
             <div id='ch1'>
                 <AnimatedLoader />
             </div>
-            <div id='ch2' className="hidden  flex-col w-full text-4xl font-bold text-center py-10 fade-in scrl max-lg:h-screen">
+            <div id='ch2' className="hidden flex-col w-full text-4xl font-bold text-center py-10 fade-in scrl lg:h-screen">
                 {sum === 0 ?
                     <div className='text-red-500'>
                         No Transactions Found
