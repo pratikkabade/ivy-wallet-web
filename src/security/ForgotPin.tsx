@@ -1,5 +1,5 @@
 import { Modal } from "flowbite-react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export const ForgotPin = () => {
     const [openModal, setOpenModal] = useState<string | undefined>();

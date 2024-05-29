@@ -1,8 +1,4 @@
-type ScrollTopProps = {
-    col: string
-}
-
-export const ScrollTop = (props: ScrollTopProps) => {
+export const ScrollTop = () => {
     function scrollUp() {
         const scrollUp = document.getElementById('scroll-up');
 

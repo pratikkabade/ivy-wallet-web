@@ -29,7 +29,7 @@ export const ProjectRoutes = () => {
                     }
                 </Routes>
 
-                <ScrollTop col={"green"} />
+                <ScrollTop />
 
             </BrowserRouter>
         </div>
