@@ -1,6 +1,6 @@
 {
-  "name": "react-app",
-  "version": "0.1.0",
+  "name": "ivy-wallet-web",
+  "version": "0.3.3",
   "description": "Generated from https://github.com/Self-Generator/javaScript-frameworks",
   "private": true,
   "dependencies": {
